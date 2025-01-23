@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import TodoApp from '../Todo/TodoApp'
+import Disptodoapp from '../Todo/Disptodoapp'
 
 const Todo = () => {
+  const [list, setList] = useState([])
+  const addList = (newInput)=>{
+    setList([... list, newInput])
+  }
+  const deleteData = (del)=>{
+    const newdata = [... list]
+    newdata.splice(del ,1)
+      setList([... newdata])
+    
+  }
   return (
-    <div>Todo</div>
+    <div className='mt-32 m-auto flex flex-col items-center justify-items-center w-[50vw] '>
+      <div className='bg-slate-600 w-full p-4 shadow-2xl rounded-lg'> 
+        <TodoApp addList = {addList} />
+        <hr className='my-4 w-full' />
+        {
+          list.map((lisItem, i)=>{
+            return(
+              <Disptodoapp item = {lisItem} key={i} deleteData = {deleteData} index = {i} />
+            )
+          })
+        }
+      </div>
+    </div>
   )
 }
 
@@ -15,7 +39,7 @@ export default Todo
 // import Dispto from '../Todo/Disptodoapp'
 
 // const Todo = () => {
-//     const [select, setSelect] = useState([])   
+//     const [select, setSelect] = useState([])
 //     const addItem = (news)=>{
 //         if(news === ''){
 //             alert('enter')
