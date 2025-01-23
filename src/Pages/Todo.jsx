@@ -1,31 +1,8 @@
-import React, { useState } from 'react'
-import TodoApp from '../Todo/TodoApp'
-import Disptodoapp from '../Todo/Disptodoapp'
+import React from 'react'
 
 const Todo = () => {
-  const [listItem, setlistItem] = useState([])
-  const addList = (item)=>{
-    setlistItem([... listItem, item])
-  }
-
-  const deleted = (item)=>{
-    const newItem = ([... listItem])
-    newItem.splice(item, 1)
-    setlistItem([... newItem])
-  }
-
   return (
-    <div className='mt-20 bg-green-900 m-auto w-[40vw] p-3'>
-        <TodoApp addList = {addList} />
-        <hr />
-        {
-          listItem.map((itemList, i)=>{
-            return(
-              <Disptodoapp key={i} item = {itemList} deleted = {deleted} index = {i} />
-            )
-          })
-        }
-    </div>
+    <div>Todo</div>
   )
 }
 

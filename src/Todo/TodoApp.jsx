@@ -1,24 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const TodoApp = ({addList}) => {
-  const [inputtext, setInputtext] = useState('')
-  const changed = (e)=>{
-    setInputtext(e.target.value)
-  }
+const TodoApp = () => {
   return (
-    <div className='flex items-center justify-between'>
-      <input onChange={changed} type="text" placeholder='enter data' className='text-black' value={inputtext} />
-      <button onClick={()=>{
-        addList(inputtext)
-        setInputtext('')
-      }} className='bg-green-500'>add</button>
-      {/* <h1>{inputtext}</h1> */}
-    </div>
+    <div>TodoApp</div>
   )
 }
 
 export default TodoApp
-
 
 
 // import React, { useState } from 'react'
